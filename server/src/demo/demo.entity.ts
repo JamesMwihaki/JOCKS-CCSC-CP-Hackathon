@@ -7,5 +7,4 @@ export class Demo {
 
     @Column()
     info: string;
-
 }

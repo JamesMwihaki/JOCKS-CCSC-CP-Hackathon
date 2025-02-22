@@ -14,7 +14,7 @@ import { Demo } from './demo/demo.entity';
       password: 'password',
       database: 'database',
       entities: [Demo],
-      synchronize: true,
+      synchronize: false,
     }),
     TypeOrmModule.forFeature([Demo])
   ],
