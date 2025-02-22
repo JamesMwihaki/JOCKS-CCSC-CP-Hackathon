@@ -7,4 +7,7 @@ export class Demo {
 
     @Column()
     info: string;
+
+    @Column()
+    data: string;
 }
