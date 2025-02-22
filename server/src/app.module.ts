@@ -1,8 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { DemoController } from './demo/demo.controller';
-import { DemoService } from './demo/demo.service';
-import { Demo } from './demo/demo.entity';
+import { BuildingsController } from './Buildings/buildings.controller';
+import { BuildingsService } from './Buildings/buildings.service';
+import { Buildings } from './Buildings/buildings.entity';
+import { Rooms } from './Rooms/rooms.entity';
+import { RoomsContoller } from './Rooms/rooms.controller';
+import { RoomsService } from './Rooms/rooms.service';
 
 @Module({
   imports: [
@@ -13,12 +16,13 @@ import { Demo } from './demo/demo.entity';
       username: 'user',
       password: 'password',
       database: 'database',
-      entities: [Demo],
+      entities: [Buildings, Rooms],
       synchronize: false,
     }),
-    TypeOrmModule.forFeature([Demo])
+    TypeOrmModule.forFeature([Buildings, Rooms])
   ],
-  controllers: [DemoController],
-  providers: [DemoService],
+  controllers: [BuildingsController, BuildingsService],
+  providers: [RoomsContoller, RoomsService]
+
 })
 export class AppModule {}

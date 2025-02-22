@@ -1,28 +1,23 @@
 import { Body, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Demo } from './demo.entity';
-import { DemoDto } from './dto/demo.dto';
+import { Rooms } from './rooms.entity';
+import { RoomsDto } from './dto/rooms.dto';
 
 @Injectable()
-export class DemoService {
+export class RoomsService {
   constructor (
-    @InjectRepository(Demo)
-    private readonly DemoRepository: Repository<Demo>,
+    @InjectRepository(Rooms)
+    private readonly DemoRepository: Repository<Rooms>,
   ) {}
-  
-  //getHello(): string {
-  //  return 'Hello World!';
-  //}
 
   findAll() {
     return this.DemoRepository.find()
   }
 
-  createPost(body: DemoDto) {
+  createPost(body: RoomsDto) {
     const post = this.DemoRepository.create(body)
     return this.DemoRepository.save(post)
-    //return "hi";
   }
 
 }

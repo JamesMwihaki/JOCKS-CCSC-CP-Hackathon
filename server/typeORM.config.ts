@@ -1,6 +1,7 @@
 import {config } from "dotenv";
-import { Demo } from "./src/demo/demo.entity";
+import { Buildings } from "./src/Buildings/buildings.entity";
 import { DataSource } from "typeorm";
+import { Rooms } from "./src/Rooms/rooms.entity";
 
 config();
 
@@ -14,6 +15,6 @@ export default new DataSource(
         database: 'database',
         migrations: ['migrations/**'],
         synchronize: false,
-        entities: [Demo]
+        entities: [Buildings, Rooms]
     }
 )

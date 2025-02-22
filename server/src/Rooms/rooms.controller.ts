@@ -1,10 +1,10 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { DemoService } from './demo.service';
-import { DemoDto } from './dto/demo.dto';
+import { RoomsService } from './rooms.service';
+import { RoomsDto } from './dto/rooms.dto';
 
 @Controller()
-export class DemoController {
-  constructor(private readonly demoService: DemoService) {}
+export class RoomsContoller {
+  constructor(private readonly demoService: RoomsService) {}
 
   @Get()
   getAll() {
@@ -13,7 +13,7 @@ export class DemoController {
   }
 
   @Post()
-  createPost(@Body() body: DemoDto) {
+  createPost(@Body() body: RoomsDto) {
     return this.demoService.createPost(body)
   }
 
