@@ -1,0 +1,7 @@
+h1{
+    color: var(--red-scarlet);
+    background-color: var(--grey-light);
+    font-size: 30px;
+    text-align: center;
+    padding: 20px;
+}
