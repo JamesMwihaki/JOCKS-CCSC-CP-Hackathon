@@ -2,19 +2,22 @@ import { Body, Controller, Get, Post } from '@nestjs/common';
 import { BuildingsService } from './buildings.service';
 import { BuildingsDto } from './dto/buildings.dto';
 
-@Controller()
+@Controller('buildings')
 export class BuildingsController {
-  constructor(private readonly demoService: BuildingsService) {}
+  constructor(private readonly buildingsService: BuildingsService) {}
 
-  @Get()
+  @Get('/all')
   getAll() {
-    //return this.appService.getHello();
-    return this.demoService.findAll();
+    return this.buildingsService.findAll();
+  }
+
+  @Get('/buildings')
+  getBuildings() {
+    return this.buildingsService.getBuildings()
   }
 
   @Post()
   createPost(@Body() body: BuildingsDto) {
-    return this.demoService.createPost(body)
+    return this.buildingsService.createPost(body)
   }
-
 }

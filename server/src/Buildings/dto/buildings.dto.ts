@@ -1,4 +1,6 @@
 export class BuildingsDto {
     id: number;
-    info: string;
+    buildidngs_locations: string;
+    departments: string[];
+    description: string;
 }

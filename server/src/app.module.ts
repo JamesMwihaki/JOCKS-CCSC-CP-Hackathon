@@ -21,8 +21,8 @@ import { RoomsService } from './Rooms/rooms.service';
     }),
     TypeOrmModule.forFeature([Buildings, Rooms])
   ],
-  controllers: [BuildingsController, BuildingsService],
-  providers: [RoomsContoller, RoomsService]
+  controllers: [BuildingsController, RoomsContoller],
+  providers: [BuildingsService, RoomsService]
 
 })
 export class AppModule {}

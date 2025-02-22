@@ -8,16 +8,16 @@ import { RoomsDto } from './dto/rooms.dto';
 export class RoomsService {
   constructor (
     @InjectRepository(Rooms)
-    private readonly DemoRepository: Repository<Rooms>,
+    private readonly roomsRepository: Repository<Rooms>,
   ) {}
 
   findAll() {
-    return this.DemoRepository.find()
+    return this.roomsRepository.find()
   }
 
   createPost(body: RoomsDto) {
-    const post = this.DemoRepository.create(body)
-    return this.DemoRepository.save(post)
+    const post = this.roomsRepository.create(body)
+    return this.roomsRepository.save(post)
   }
 
 }

@@ -8,21 +8,20 @@ import { BuildingsDto } from './dto/buildings.dto';
 export class BuildingsService {
   constructor (
     @InjectRepository(Buildings)
-    private readonly DemoRepository: Repository<Buildings>,
+    private readonly buildingsRepository: Repository<Buildings>,
   ) {}
-  
-  //getHello(): string {
-  //  return 'Hello World!';
-  //}
 
   findAll() {
-    return this.DemoRepository.find()
+    return this.buildingsRepository.find()
+  }
+
+  getBuildings() {
+    return this.buildingsRepository.find({ select: ['buildings_locations'] })
   }
 
   createPost(body: BuildingsDto) {
-    const post = this.DemoRepository.create(body)
-    return this.DemoRepository.save(post)
-    //return "hi";
+    const post = this.buildingsRepository.create(body)
+    return this.buildingsRepository.save(post)
   }
 
 }
