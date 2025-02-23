@@ -13,4 +13,7 @@ export class Buildings {
 
     @Column()
     description: string;
+
+    @Column()
+    image: string;
 }
