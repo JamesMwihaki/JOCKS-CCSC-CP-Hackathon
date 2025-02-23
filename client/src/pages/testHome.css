@@ -1,0 +1,5 @@
+/* Allows navbar to overlay other elements*/
+.navbar {
+    position:absolute;
+    top: 0;
+}
