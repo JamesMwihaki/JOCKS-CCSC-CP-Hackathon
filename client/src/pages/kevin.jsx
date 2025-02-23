@@ -5,15 +5,16 @@ export default function Kevin() {
     const isMounted = useRef(false)
     useEffect(() => {
         if (!isMounted.current) {
-            axios.post(`http://localhost:3000`, 
+            axios.post(`http://localhost:3000/buildings`, 
                 {
-                    id: 2, // id is the primary column. Each row needs a unique number.
-                    info: "message"
+                    id: 11, // id is the primary column. Each row needs a unique number.
+                    buildings_locations: "building",
+                    departments: ["department1", "department2", "department3"],
+                    description: "text description"
                 }
             )
-            axios.get(`http://localhost:3000`).then((res) => {
+            axios.get(`http://localhost:3000/buildings/all`).then((res) => {
                 console.log(res)
-                //console.log(res.data)
             })
         }
         isMounted.current = true;

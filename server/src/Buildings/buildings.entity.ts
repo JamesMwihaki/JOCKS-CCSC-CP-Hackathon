@@ -8,7 +8,7 @@ export class Buildings {
     @Column()
     buildings_locations: string;
 
-    @Column('jsonb', {nullable: true})
+    @Column({type: 'text', array: true, nullable: true})
     departments: string[]
 
     @Column()
