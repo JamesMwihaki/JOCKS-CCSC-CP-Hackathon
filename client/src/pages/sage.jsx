@@ -4,7 +4,6 @@ import './sage.css';
 import { MapContainer, TileLayer, Popup, Rectangle, useMap, Marker} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css'; 
 import './james.css'
-import L from 'leaflet'
 //import MapBoxLayer  from './MapBoxLayer';
 
 function ReturnHome({ center, zoom,  setReturnHome }) {
@@ -21,7 +20,6 @@ function ReturnHome({ center, zoom,  setReturnHome }) {
 export default function Sage() {
   const [showSidebar, setShowSidebar] = useState(false)
   const [returnHome, setReturnHome] = useState(false)
-  const [userLocation, setUserLocation] = useState(null)
   const center = [38.87280, -94.78253];
   const homeZoom = 17
   const bounds = [
@@ -40,7 +38,7 @@ export default function Sage() {
     return(
         <>
         <div className='home_page'>
-      <div className='map_container'>
+        <div className='map_container'>
         <div className='home_button' onClick={handHomeButtonClick}>
           <img className='home_img' src="/ccsc_home_button_v3.png"  alt="Home Button" />
         </div>
@@ -65,14 +63,16 @@ export default function Sage() {
     </div> 
         {showSidebar && (
             <div className='sidebar'>
+            <button className = 'closebutton' onClick={() => setShowSidebar(false)}>X</button>
             <div className= "image"><div className='bell'></div></div>
             <h1 className="h1">Bell Cultural Events Center</h1>
             <div className='interior_button'>View Interior</div>
             <p className='body'>The 40,000 square foot Bell Cultural Events Center is a busy complex, hosting over 320 events representing more than 70,000 guests throughout the year, not including regular classes. The center is used to showcase the talents of the MNU Fine and Performing Arts students and local artists and performing arts companies, and is available for use by the surrounding community as well as the Kansas City metro.</p>
-            <button onClick={() => setShowSidebar(false)}>Close</button>
         </div>
         )}
-        {/*<div className='sidebar'>
+        {showSidebar && (
+        <div className='sidebar'>
+            <button className = 'closebutton' onClick={() => setShowSidebar(false)}>X</button>
             <h2>Bell Cultural Events Center</h2>
             <h1 className="h1">Rooms</h1>
             <div className='rooms_body'>
@@ -92,7 +92,8 @@ export default function Sage() {
                 <li className='room_items'>Mabee-104</li>
                 <li className='room_items'>Black Box Theater-134</li>
             </div>
-        </div>*/}
+        </div>
+        )}
         </> 
     )
 }
