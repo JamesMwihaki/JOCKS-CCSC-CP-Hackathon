@@ -94,11 +94,18 @@ function renderPolygon({
 }
 
 export default function James3D() {
-  const [showSidebar, setShowSidebar] = useState(false);
+  
   const [returnHome, setReturnHome] = useState(false);
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
   const markerRef = useRef(null)
+
+  const [name, setName] = useState("")
+  const [showSidebar, setShowSidebar] = useState(false);
+  const handleLocationClick = (buildingTitle) => {
+    setShowSidebar(true);
+    setName(buildingTitle) ;
+  };
 
   // Set initial map center and zoom. Mapbox GL expects [lng, lat]
   const center = [-94.78283, 38.87635];
@@ -191,9 +198,9 @@ export default function James3D() {
         sourceId: 'bell-source',
         layerId: 'bell-layer',
         fillColor: 'blue',
-        fillOpacity: 1.0,
+        fillOpacity: 0.0,
         popupHTML: '<strong>Bell Cultural Events Center</strong>',
-        onClickCallback: () => setShowSidebar(true)
+        onClickCallback: () => handleLocationClick("Bell Cultural Events Center")
       });
 
       renderPolygon({
@@ -202,9 +209,9 @@ export default function James3D() {
         sourceId: 'dobson-source',
         layerId: 'dobson-layer',
         fillColor: 'red',
-        fillOpacity: 1.0,
-        popupHTML: '<strong> dobson Hall Center</strong>',
-        onClickCallback: () => setShowSidebar(true)
+        fillOpacity: 0.0,
+        popupHTML: '<strong> Dobson Hall </strong>',
+        onClickCallback: () => handleLocationClick("Dobson Hall")
       });
 
     });
@@ -269,9 +276,9 @@ export default function James3D() {
      
       {/* Sidebar */}
       {showSidebar && (
-        <div className="side_bar">
-          <h3>Bell Cultural Events Center</h3>
-          <p>Some details about the Bell Center...</p>
+        <div className="side_bar" >
+          <h3>{name}</h3>
+          <p>{description}</p>
           <button onClick={() => setShowSidebar(false)}>Close</button>
         </div>
       )}
