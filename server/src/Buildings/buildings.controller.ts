@@ -16,6 +16,8 @@ export class BuildingsController {
     return this.buildingsService.getBuildings()
   }
 
+  
+
   @Post()
   createPost(@Body() body: BuildingsDto) {
     return this.buildingsService.createPost(body)
