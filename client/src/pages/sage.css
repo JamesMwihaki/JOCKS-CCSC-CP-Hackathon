@@ -1,14 +1,15 @@
 .sidebar {
     margin-top: 4%; /*adjust or delete to not interfere with top nav-bar.*/
-    height: 90%;
-    width: 50%;
+    height: 80%;
+    width: 33%;
     padding: 5px 0px;
     text-align: center;
     background-color: var(--blue-grey-dark);
     color: var(--white);
     border-radius: 10px;
     position: absolute;
-    top: 0px;
+    top: 25px;
+    right: 10px;
     z-index: 1000;
 }
 .sidebar .closebutton{
@@ -34,7 +35,7 @@
 }
 
 .sidebar .image .bell{
-    background-image: url(../images/BellFront.jpg);
+    /*background-image: url(../images/BellFront.jpg);*/
     margin: 10px;
     height: 200px;
     min-width: 240px;
@@ -62,6 +63,8 @@
     width: 150px;
     background-color: var(--blue-grey-light);
     transition-duration: .5s;
+    text-decoration: none;
+    color: white;
 }
 .sidebar .interior_button:hover{
     background-color: var(--blue-grey-med);
