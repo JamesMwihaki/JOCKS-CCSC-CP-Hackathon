@@ -20,7 +20,6 @@ export default function James() {
     const handleMapClick = (e) => {
       const lat = e.latlng.lat;
       const lng = e.latlng.lng;
-      console.log('hi')
       const map = mapRef.current;
       if (map) {
         map.setView([lat, lng], map.getZoom())
@@ -28,17 +27,14 @@ export default function James() {
     };
 
     const [showSidebar, setShowSidebar] = useState(false)
-    const [showSidebar2, setShowSidebar2] = useState(false)
     const [name, setName] = useState("")
 
     const handleLocationClick = (buildingTitle) => {
       setShowSidebar(true);
-
       setName(buildingTitle) ;
     };
 
   return (
-    <>
     <div className='home_page'>
       <div className='map_container'>
         <MapContainer center={center} zoom={15} style={{ height: '100%', width: '100%' }} whenCreated={(map) => { mapRef.current = map }} onClick={handleMapClick}>
@@ -69,7 +65,7 @@ export default function James() {
         </MapContainer>
       </div>
 
-      {showSidebar && showSidebar2 && (
+      {showSidebar && (
         <div className="side_bar" >
           <h3>{name}</h3>
           <p> </p>
@@ -77,6 +73,5 @@ export default function James() {
         </div>
       )}
     </div>
-    </>    
   );
 }
