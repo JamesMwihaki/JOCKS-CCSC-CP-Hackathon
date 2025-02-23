@@ -1,48 +1,109 @@
 # CCSC-CP-Hackathon
-Jocks 2025 CCSC-CP Hackathon
 
-Prerequisites
-Have Docker installed
-Have Node.js installed
+## Jocks 2025 CCSC-CP Hackathon
 
-Installation Guide (GitHub)
-Open a terminal
-Navigate to the desired directory
-Run “git clone https://github.com/JamesMwihaki/JOCKS-CCSC-CP-Hackathon.git”
-Open docker
-Go back to terminal
-Run “docker-compose up --build”
-Upon completion hit Ctrl-C in terminal
-Type cd server
-Run “npm install”
-Run “npm install typeorm mapped-types”
-Run “cd ../client”
-Run “npm install”
-Run “npm install axios react-router-dom fuse.js leaflet mapbox-gl”
-Close the terminal
+### Prerequisites
+- Docker installed
+- Node.js installed
 
-Installation Guide (Zip)
-Download the zip file
-Navigate to the desired directory
-Extract the zip file
-Open docker
-Open a terminal
-Run “docker-compose up --build”
-Upon completion hit Ctrl-C in terminal
-Type cd server
-Run “npm install”
-Run “npm install typeorm mapped-types”
-Run “cd ../client”
-Run “npm install”
-Run “npm install axios react-router-dom fuse.js leaflet mapbox-gl”
-Close the terminal
+---
 
-Running the Page
-Open docker
-Run Postgres
-Open a terminal
-Run “cd server”
-Run “npm run start:dev”
-Open a new terminal
-Run “cd client”
-Run “npm start”
+### Installation Guide (GitHub)
+
+1. **Clone the Repository:**
+   - Open a terminal.
+   - Navigate to the desired directory.
+   - Run:
+     ```bash
+     git clone https://github.com/JamesMwihaki/JOCKS-CCSC-CP-Hackathon.git
+     ```
+
+2. **Set Up Docker:**
+   - Open Docker.
+   - Go back to the terminal.
+   - Run:
+     ```bash
+     docker-compose up --build
+     ```
+   - Upon completion, hit `Ctrl-C` in the terminal.
+
+3. **Install Server Dependencies:**
+   - Type:
+     ```bash
+     cd server
+     npm install
+     npm install typeorm mapped-types
+     ```
+
+4. **Install Client Dependencies:**
+   - Then run:
+     ```bash
+     cd ../client
+     npm install
+     npm install axios react-router-dom fuse.js leaflet mapbox-gl
+     ```
+
+5. **Close the Terminal.**
+
+---
+
+### Installation Guide (Zip)
+
+1. **Download and Extract:**
+   - Download the zip file.
+   - Navigate to the desired directory.
+   - Extract the zip file.
+
+2. **Set Up Docker:**
+   - Open Docker.
+   - Open a terminal.
+   - Run:
+     ```bash
+     docker-compose up --build
+     ```
+   - Upon completion, hit `Ctrl-C` in the terminal.
+
+3. **Install Server Dependencies:**
+   - Type:
+     ```bash
+     cd server
+     npm install
+     npm install typeorm mapped-types
+     ```
+
+4. **Install Client Dependencies:**
+   - Then run:
+     ```bash
+     cd ../client
+     npm install
+     npm install axios react-router-dom fuse.js leaflet mapbox-gl
+     ```
+
+5. **Close the Terminal.**
+
+---
+
+### Running the Page
+
+1. **Start Postgres in Docker:**
+   - Open Docker and ensure Postgres is running.
+
+2. **Run the Server:**
+   - Open a terminal.
+   - Run:
+     ```bash
+     cd server
+     npm run start:dev
+     ```
+
+3. **Run the Client:**
+   - Open a new terminal.
+   - Run:
+     ```bash
+     cd client
+     npm start
+     ```
+
+---
+
+Happy coding and good luck at the hackathon!
