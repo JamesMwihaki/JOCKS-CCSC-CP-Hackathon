@@ -1,9 +1,9 @@
-
 import React, { useState, useEffect }  from 'react';
 import { MapContainer, TileLayer, Popup, Rectangle, useMap, Marker} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css'; 
 import './james.css'
 import L from 'leaflet'
+//import MapBoxLayer  from './MapBoxLayer';
 
 
 
@@ -77,9 +77,10 @@ export default function James() {
             attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
   
           />
+          {/*<MapBoxLayer/>*/}
             <Rectangle
               bounds={bounds}
-              pathOptions={{ color: '', fillOpacity: 0.0, fillColor: 'blue' }}
+              pathOptions={{ color: 'blue', fillOpacity: 0.0, fillColor: 'blue' }}
               eventHandlers = {{click: handleLocationClick}}
             >
               <Popup>
@@ -109,3 +110,4 @@ export default function James() {
     </div>    
   );
 }
+

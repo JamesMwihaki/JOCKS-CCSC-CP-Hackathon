@@ -12,7 +12,7 @@
 }
 
 .side_bar{
-    width: 50%;
+    width: 30%;
     padding: '1rem';
     border-left: '1px solid #ccc';
     background-color: '#f9f9f9';
@@ -21,7 +21,7 @@
 .home_button{
     position: absolute;
     z-index: 1000;
-    margin-left: 95%;
+    margin-left: 93%;
     margin-top: 2%;
     border-radius: 15px;
     border: 2px solid black;
@@ -39,3 +39,11 @@
     width: 100%;
     position: relative;
   }
+
+.marker {
+background-image: '/user_location.png';
+width: 32px;
+height: 32px;
+background-size: contain;
+background-repeat: no-repeat;
+}
