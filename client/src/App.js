@@ -7,6 +7,7 @@ import Sage from './pages/sage.jsx';
 import Kevin from './pages/kevin.jsx';
 import James from './pages/james.jsx';
 import Olivia from './pages/olivia.jsx';
+import Test  from './pages/test.jsx';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/kevin" element={<Kevin />} />
         <Route path="/james" element={<James />} />
         <Route path="/olivia" element={<Olivia />} />
+        <Route path="/Test" element={<Test />} />
       </Routes>
     </Router>
   );
