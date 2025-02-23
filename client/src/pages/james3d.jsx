@@ -99,6 +99,7 @@ export default function James3D() {
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
   const markerRef = useRef(null)
+  const [name, setName] = useState("")
 
   // Set initial map center and zoom. Mapbox GL expects [lng, lat]
   const center = [-94.78283, 38.87635];
@@ -270,7 +271,7 @@ export default function James3D() {
       {/* Sidebar */}
       {showSidebar && (
         <div className="side_bar">
-          <h3>Bell Cultural Events Center</h3>
+          <h3>{name}</h3>
           <p>Some details about the Bell Center...</p>
           <button onClick={() => setShowSidebar(false)}>Close</button>
         </div>
