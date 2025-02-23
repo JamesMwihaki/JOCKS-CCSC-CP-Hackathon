@@ -60,7 +60,7 @@ export default function James() {
       } else {
         console.error("Geolocation is not supported by this browser.");
       }
-    }, 1); 
+    }, 100000); 
   
       return () => clearInterval(intervalId);
     }, []);
@@ -102,7 +102,7 @@ export default function James() {
 
       {showSidebar && (
         <div className="side_bar" >
-          <h3>{name}</h3>
+          <h3>Bull Center</h3>
           <p> </p>
             <button onClick={() => setShowSidebar(false)}>Close</button>
         </div>
