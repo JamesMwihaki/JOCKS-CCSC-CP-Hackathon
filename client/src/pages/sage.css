@@ -29,6 +29,15 @@
     border-radius: 8px;
 }
 
+.sidebar .image .ham{
+    background-image: url(../images/CunninghamFront.jpg);
+    margin: 10px;
+    height: 200px;
+    min-width: 240px;
+    background-size: cover;
+    border-radius: 8px;
+}
+
 .sidebar .h1{
     color: var(--white);
     /*background-color: var(--blue-grey-dark);*/
@@ -50,8 +59,10 @@
 .sidebar .body{
     margin: 10px;
     padding: 10px 10px;
+    height: 100px;
     background-color: var(--blue-grey-med);
     border-radius:8px;
+    overflow: auto;
 }
 .sidebar .rooms_body{
     height: 400px;
@@ -74,4 +85,5 @@
 }
 .sidebar .room_items:hover{
     background-color: var(--blue-grey-light);
+    cursor: pointer;
 }
