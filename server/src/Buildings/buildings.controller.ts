@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { BuildingsService } from './buildings.service';
 import { BuildingsDto } from './dto/buildings.dto';
 
@@ -16,7 +16,12 @@ export class BuildingsController {
     return this.buildingsService.getBuildings()
   }
 
-  
+    // returns the description of a building
+    @Get()
+    getBuildingDescription(@Query('buildingName') buildingName: string) {
+      //return buildingName;
+      return this.buildingsService.getBuildingDescription(buildingName)
+    }
 
   @Post()
   createPost(@Body() body: BuildingsDto) {
