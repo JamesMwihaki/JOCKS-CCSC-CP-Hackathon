@@ -19,8 +19,6 @@ export class RoomsService {
     return this.roomsRepository.find({select: ['room_number'], where: {buildings_locations: buildingName }})
   }
 
-
-
   createPost(body: RoomsDto) {
     const post = this.roomsRepository.create(body)
     return this.roomsRepository.save(post)

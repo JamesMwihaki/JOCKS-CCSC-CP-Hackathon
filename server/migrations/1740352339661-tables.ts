@@ -1,12 +1,12 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class Tables1740280612222 implements MigrationInterface {
-    name = 'Tables1740280612222'
+export class Tables1740352339661 implements MigrationInterface {
+    name = 'Tables1740352339661'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`CREATE TABLE "buildings" ("id" integer NOT NULL, "buildings_locations" character varying NOT NULL, "departments" text array, "description" character varying NOT NULL, "image" character varying NOT NULL, CONSTRAINT "PK_bc65c1acce268c383e41a69003a" PRIMARY KEY ("id"))`);
         await queryRunner.query(`CREATE TABLE "rooms" ("id" integer NOT NULL, "buildings_locations" character varying NOT NULL, "room_number" integer NOT NULL, "room_name" character varying, "room_type" character varying, "person" character varying, CONSTRAINT "PK_0368a2d7c215f2d0458a54933f2" PRIMARY KEY ("id"))`);
-        
+    
         // Buildings Table
 
         await queryRunner.query(`INSERT INTO buildings (id, buildings_locations, departments, description, image) VALUES (0, 'Osborne Hall', ARRAY[''], 'Osborne Hall houses the Department of Natural Health and Mathematic Sciences.', '')`)
@@ -22,7 +22,12 @@ export class Tables1740280612222 implements MigrationInterface {
 
         await queryRunner.query(`INSERT INTO rooms (id, buildings_locations, room_number, room_name, room_type, person) VALUES (0, 'Osborne Hall', 204, NULL, 'classroom', NULL)`)
         await queryRunner.query(`INSERT INTO rooms (id, buildings_locations, room_number, room_name, room_type, person) VALUES (1, 'Osborne Hall', 106, NULL, 'classroom', NULL)`)
-        await queryRunner.query(`INSERT INTO rooms (id, buildings_locations, room_number, room_name, room_type, person) VALUES (2, 'Cunningham Center', 204, 'Rexroth Collab', NULL, NULL)`)
+        await queryRunner.query(`INSERT INTO rooms (id, buildings_locations, room_number, room_name, room_type, person) VALUES (3, 'Cunningham Center', 204, 'Rexroth Collab', NULL, NULL)`)
+        await queryRunner.query(`INSERT INTO rooms (id, buildings_locations, room_number, room_name, room_type, person) VALUES (4, 'Bell Center', 104, 'SnowBarger', NULL, NULL)`)
+        await queryRunner.query(`INSERT INTO rooms (id, buildings_locations, room_number, room_name, room_type, person) VALUES (5, 'Bell Center', 101, 'Mabee Performing Arts Hall', NULL, NULL)`)
+        await queryRunner.query(`INSERT INTO rooms (id, buildings_locations, room_number, room_name, room_type, person) VALUES (6, 'Bell Center', 112, '', NULL, NULL)`)
+        await queryRunner.query(`INSERT INTO rooms (id, buildings_locations, room_number, room_name, room_type, person) VALUES (7, 'Bell Center', 123, '', NULL, NULL)`)
+        await queryRunner.query(`INSERT INTO rooms (id, buildings_locations, room_number, room_name, room_type, person) VALUES (8, 'Bell Center', 109, '', NULL, NULL)`)
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {

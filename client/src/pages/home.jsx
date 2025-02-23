@@ -192,6 +192,9 @@ export default function TestHome() {
     function resultSelect(selection) {
         selection.target.parentElement.previousSibling.value=selection.target.innerHTML;
         search("");
+        var selectedLocation = selection.target.innerHTML;
+        selection.target.parentElement.previousSibling.value = selectedLocation;
+        window.location.href = './olivia';
     }
 
     /*-------------------
