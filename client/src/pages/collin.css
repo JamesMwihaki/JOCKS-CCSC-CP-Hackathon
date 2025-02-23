@@ -4,6 +4,15 @@
     width: 100%;
     padding: 10px 10px 0px 10px;
     margin: 0px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.navbar li {
+    list-style-type: none;
+    margin-right: 20px;
 }
 
 /*-----------------
@@ -18,35 +27,66 @@
     padding: 0px;
     margin-top: 10px;
     vertical-align:top;
+    height: fit-content;
+    overflow: hidden;
 }
 
-.navbar .dropdown-content {
+.navbar .dropdown:focus {
+    background-color: black;
+}
+
+.navbar .dropdown:not(:focus-within) .dropdown-content {
     display:none;
     padding: 10px 10px;
     margin: 0px;
 }
 
-.navbar .filter {
+.navbar .dropdown-title {
     padding: 3px 5px;
     font-size: large;
     font-weight: 500;
     margin:0px;
 }
 
-.navbar .dropdown-content:hover {
+.navbar .dropdown-content:not(.selected):hover {
     background-color: lightgray;
+}
+
+.selected {
+    background-color: #FBB;
 }
 
 /*------------------
 ---- SEARCH BAR ----
 ------------------*/
+.searchBox {
+    background-color: white;
+    box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.2);
+    width: 33%;
+    border-radius: 25px;
+    height: fit-content;
+    overflow: hidden;
+}
+
 .search {
     border-radius: 25px;
     border-style: solid;
     height: 50px;
-    width: 25%;
     vertical-align: top;
     font-size: large;
-    padding: 0px 15px;
-    margin-right: 20px;
+    padding: 0px 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#results {
+    width: 100%;
+}
+
+.result, .noResults {
+    padding: 10px 15px;
+}
+
+.result:hover {
+    background-color: lightgray;
 }
