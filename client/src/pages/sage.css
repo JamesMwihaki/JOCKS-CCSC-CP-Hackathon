@@ -1,16 +1,26 @@
 .sidebar {
     margin-top: 4%; /*adjust or delete to not interfere with top nav-bar.*/
-    height: 100%;
+    height: 90%;
     width: 50%;
     padding: 5px 0px;
     text-align: center;
     background-color: var(--blue-grey-dark);
     color: var(--white);
     border-radius: 10px;
-    /*display: block; will lay over top other elements?*/
     position: absolute;
     top: 0px;
     z-index: 1000;
+}
+.sidebar .closebutton{
+    background-color: var(--grey-light);
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    border-radius: 10px;
+}
+.sidebar .closebutton:hover{
+    background-color: var(--grey-med);
+    cursor: pointer;
 }
 
 .sidebar .image {
@@ -61,7 +71,7 @@
 .sidebar .body{
     margin: 10px;
     padding: 10px 10px;
-    height: 100px;
+    height: 25%;
     background-color: var(--blue-grey-med);
     border-radius:8px;
     overflow: auto;
