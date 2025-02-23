@@ -1,0 +1,28 @@
+/*---------------------------
+---------- Common  ----------
+---------------------------*/
+
+/*color values taken from MNU.edu
+"import './common.css';"
+reference "background-color: var(--red-scarlet)”*/
+
+:root{
+    --red-scarlet: #ff2400;
+    --red-rose: #ea0029;
+    --red-dark: #9c182f;
+
+    --yellow-gold: #ffb600;
+   
+    --white: #ffffff;
+   
+    --blue-grey-light: #238dc1;
+    --blue-grey-med: #003a5d;
+    --blue-grey-dark: #081f2d ;
+    --blue-navy: #060270 ;
+
+    --grey-light: #CECECE;
+    --grey-med: #7D7D7D;
+    --grey-dark: #232323;
+
+}
+
