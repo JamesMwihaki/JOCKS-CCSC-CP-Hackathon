@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "Mapathon",
+            "database": "database",
+            "username": "user",
+            "password": "password"
+        }
+    ]
+}
