@@ -16,7 +16,7 @@ export class BuildingsController {
     return this.buildingsService.getBuildings()
   }
 
-    // returns the description of a building
+    // returns the description of one building
     @Get()
     getBuildingDescription(@Query('buildingName') buildingName: string) {
       //return buildingName;
