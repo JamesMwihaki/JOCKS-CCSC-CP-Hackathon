@@ -2,7 +2,34 @@ import './common.css';
 import './sage.css';
 
 export default function Sage() {
+    // Initial window size
+console.log("Initial width:", window.innerWidth);
+console.log("Initial height:", window.innerHeight);
 
+// Event listener for window resize
+window.addEventListener("resize", function() {
+  const currentWidth = window.innerWidth;
+  const currentHeight = window.innerHeight;
+
+  console.log("Window resized. Width:", currentWidth, "Height:", currentHeight);
+
+  const sideBar = document.getElementById('sideBar');
+
+  // You can perform actions based on the new window size here
+  if (currentWidth < 568) {
+    // Example: Apply mobile-specific styling or logic
+    console.log("Mobile view");
+    sideBar.style.display = 'inline-block';
+  } else {
+    // Example: Apply desktop-specific styling or logic
+    console.log("Desktop view");
+  }
+  
+  const myDiv = document.getElementById('myDiv');
+  myDiv.addEventListener('click', function() {
+  myDiv.classList.toggle('vertical');
+});
+});
     return(
         <>
         <div className='sidebar'>
@@ -15,21 +42,21 @@ export default function Sage() {
             <h2>Bell Cultural Events Center</h2>
             <h1 className="h1">Rooms</h1>
             <div className='rooms_body'>
-            <li className='room_items'>Jones-117</li>
-            <li className='room_items'>Mabee-104</li>
-            <li className='room_items'>Black Box Theater-134</li>
-            <li className='room_items'>Jones-117</li>
-            <li className='room_items'>Mabee-104</li>
-            <li className='room_items'>Black Box Theater-134</li>
-            <li className='room_items'>Jones-117</li>
-            <li className='room_items'>Mabee-104</li>
-            <li className='room_items'>Black Box Theater-134</li>
-            <li className='room_items'>Jones-117</li>
-            <li className='room_items'>Mabee-104</li>
-            <li className='room_items'>Black Box Theater-134</li>
-            <li className='room_items'>Jones-117</li>
-            <li className='room_items'>Mabee-104</li>
-            <li className='room_items'>Black Box Theater-134</li>
+                <li className='room_items'>Jones-117</li>
+                <li className='room_items'>Mabee-104</li>
+                <li className='room_items'>Black Box Theater-134</li>
+                <li className='room_items'>Jones-117</li>
+                <li className='room_items'>Mabee-104</li>
+                <li className='room_items'>Black Box Theater-134</li>
+                <li className='room_items'>Jones-117</li>
+                <li className='room_items'>Mabee-104</li>
+                <li className='room_items'>Black Box Theater-134</li>
+                <li className='room_items'>Jones-117</li>
+                <li className='room_items'>Mabee-104</li>
+                <li className='room_items'>Black Box Theater-134</li>
+                <li className='room_items'>Jones-117</li>
+                <li className='room_items'>Mabee-104</li>
+                <li className='room_items'>Black Box Theater-134</li>
             </div>
         </div>
         </> 
