@@ -2,7 +2,6 @@ import React from "react";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import './App.css';
 import Home from './pages/home.jsx';
-import TestHome from './pages/testHome.jsx';
 import Collin from './pages/collin.jsx';
 import Sage from './pages/sage.jsx';
 import Kevin from './pages/kevin.jsx';
@@ -18,7 +17,6 @@ function App() {
     <Router>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/test" element={<TestHome />} />
         <Route path="/collin" element={<Collin />} />
         <Route path="/sage" element={<Sage />} />
         <Route path="/kevin" element={<Kevin />} />
