@@ -1,6 +1,5 @@
 
 .navbar {
-    background-color: gray;
     width: 100%;
     padding: 10px 10px 0px 10px;
     margin: 0px;
@@ -13,6 +12,10 @@
 .navbar li {
     list-style-type: none;
     margin-right: 20px;
+}
+
+html {
+    background-color: #BFB;
 }
 
 /*-----------------
@@ -31,11 +34,11 @@
     overflow: hidden;
 }
 
-.navbar .dropdown:focus {
-    background-color: black;
+.navbar .dropdown:hover .dropdown-content {
+    display: block;
 }
 
-.navbar .dropdown:not(:focus-within) .dropdown-content {
+.navbar .dropdown .dropdown-content {
     display:none;
     padding: 10px 10px;
     margin: 0px;
@@ -66,11 +69,15 @@
     border-radius: 25px;
     height: fit-content;
     overflow: hidden;
+    z-index: 1;
+}
+
+.searchBox:hover #results, .searchBox:focus-within #results {
+    display: block;
 }
 
 .search {
-    border-radius: 25px;
-    border-style: solid;
+    border-style: none;
     height: 50px;
     vertical-align: top;
     font-size: large;
@@ -79,7 +86,14 @@
     box-sizing: border-box;
 }
 
+.search:focus {
+    outline: none;
+    box-shadow: none;
+    border-bottom: 1px solid lightgray;
+}
+
 #results {
+    display: none;
     width: 100%;
 }
 
