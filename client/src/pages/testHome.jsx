@@ -1,10 +1,13 @@
-import './home.css';
+import './testHome.css';
 import './collin.css';
 import Fuse from 'fuse.js';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import React, { useState, useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+const images = require.context('../images', true);
+const imageList = images.keys().map(image => images(image));
 
 /*-------------------
 ---- JAMES' CODE ----
@@ -123,21 +126,6 @@ export default function TestHome() {
         })
     })
 
-    // Toggles the visibility of dropdown menu items
-    // Takes an integer to select which dropdown to use
-    function toggleDropdown(id) {
-        let dropdownElements = document.getElementsByClassName('dropdown')[id].getElementsByClassName('dropdown-content');
-        if (getComputedStyle(dropdownElements[1]).getPropertyValue('display') == 'none') { // Tests if dropdown is currently visible
-            for (let child=0;child<dropdownElements.length;child++) {
-                dropdownElements[child].style.setProperty('display','block'); // Makes dropdown visible
-            }
-        } else {
-            for (let child=0;child<dropdownElements.length;child++) {
-                dropdownElements[child].style.setProperty('display','none'); // Makes dropdown invisible
-            }
-        }
-    }
-
     // Allows the user to select a filter from a dropdown menu
     // Takes the clicked filter from the dropdown menu and adds/removes the "selected" status to it
     function selectFilter(object) {
@@ -207,15 +195,38 @@ export default function TestHome() {
     }
 
     /*-------------------
+    ---- SAGE'S CODE ----
+    -------------------*/
+
+    // Fills in the sidebar with data relating to the building
+    function fillSidebar(building) {
+        axios.get('http://localhost:3000/buildings/all').then(res => {
+            var options = res.data;
+            let buildingData = options.filter((option) => (option.buildings_locations == building));
+            document.getElementById("buildingName").innerHTML = buildingData[0].buildings_locations;
+            document.getElementById("description").innerHTML = buildingData[0].description;
+            let buildingImage = imageList.filter((image) => (image.includes(buildingData[0].image)));
+            document.getElementById("buildingImage").src = buildingImage[0];
+        })
+    }
+
+
+    /*-------------------
     ---- JAMES' CODE ----
     -------------------*/
-    const [showSidebar, setShowSidebar] = useState(false);
     const [returnHome, setReturnHome] = useState(false);
     const mapContainerRef = useRef(null);
     const mapRef = useRef(null);
-    const markerRef = useRef(null)
-    const [name, setName] = useState("")
-  
+    const markerRef = useRef(null);
+
+    const [name, setName] = useState("");
+    const [showSidebar, setShowSidebar] = useState(false);
+    const handleLocationClick = (buildingTitle) => {
+        setShowSidebar(true);
+        setName(buildingTitle);
+        fillSidebar(buildingTitle);
+    }
+
     // Set initial map center and zoom. Mapbox GL expects [lng, lat]
     const center = [-94.78283, 38.87635];
     //const center = [-94.9517183, 38.9738527]
@@ -307,9 +318,9 @@ export default function TestHome() {
           sourceId: 'bell-source',
           layerId: 'bell-layer',
           fillColor: 'blue',
-          fillOpacity: 1.0,
+          fillOpacity: 0.0,
           popupHTML: '<strong>Bell Cultural Events Center</strong>',
-          onClickCallback: () => setShowSidebar(true)
+          onClickCallback: () => handleLocationClick("Bell Cultural Events Center")
         });
   
         renderPolygon({
@@ -318,9 +329,9 @@ export default function TestHome() {
           sourceId: 'dobson-source',
           layerId: 'dobson-layer',
           fillColor: 'red',
-          fillOpacity: 1.0,
+          fillOpacity: 0.0,
           popupHTML: '<strong> dobson Hall Center</strong>',
-          onClickCallback: () => setShowSidebar(true)
+          onClickCallback: () => handleLocationClick("Dobson Hall")
         });
   
       });
@@ -393,6 +404,9 @@ export default function TestHome() {
                 </li>
             </ul>  
 
+
+
+
         <div className="home_page">
         <div className="map_container" style={{ position: 'relative', height: '100vh', width: '100%' }}>
             <div className="home_button" onClick={handHomeButtonClick}>
@@ -411,12 +425,23 @@ export default function TestHome() {
         
         {/* Sidebar */}
         {showSidebar && (
-            <div className="side_bar">
+            <div className='sidebar'>
+            <button className = 'closebutton' onClick={() => setShowSidebar(false)}>X</button>
+            <div className= "image"><img className='bell' id="buildingImage"></img></div>
+            <h1 className="h1" id="buildingName">Bell Cultural Events Center</h1>
+            <Link className='interior_button' to="/olivia">View Interior</Link>
+            <p className='body' id="description">The 40,000 square foot Bell Cultural Events Center is a busy complex, hosting over 320 events representing more than 70,000 guests throughout the year, not including regular classes. The center is used to showcase the talents of the MNU Fine and Performing Arts students and local artists and performing arts companies, and is available for use by the surrounding community as well as the Kansas City metro.</p>
+        </div>
+        )}
+        {/*showSidebar && (
+            <div className="side_bar" id="sidebar">
+            <div id="buildingImage"></div>
             <h3>{name}</h3>
+            <p id="description"></p>
             <p>Some details about the Bell Center...</p>
             <button onClick={() => setShowSidebar(false)}>Close</button>
             </div>
-        )}
+        )*/}
         </div>
         </>
     );
