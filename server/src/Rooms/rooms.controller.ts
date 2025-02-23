@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { RoomsService } from './rooms.service';
 import { RoomsDto } from './dto/rooms.dto';
 
@@ -9,6 +9,12 @@ export class RoomsContoller {
   @Get()
   getAll() {
     return this.roomsService.findAll();
+  }
+
+  // returns all the rooms in a building
+  @Get(':buildingName')
+  getRooms(@Param('buildingName') buildingName:string) {
+    return this.roomsService.getRooms(buildingName);
   }
 
   @Post()

@@ -20,7 +20,8 @@ export class Tables1740271484312 implements MigrationInterface {
         // Rooms Table
 
         await queryRunner.query(`INSERT INTO rooms (id, buildings_locations, room_number, room_name, room_type, person) VALUES (0, 'Osborne Hall', 204, NULL, 'classroom', NULL)`)
-        await queryRunner.query(`INSERT INTO rooms (id, buildings_locations, room_number, room_name, room_type, person) VALUES (1, 'Cunnintham Center', 204, 'Rexroth Collab', NULL, NULL)`)
+        await queryRunner.query(`INSERT INTO rooms (id, buildings_locations, room_number, room_name, room_type, person) VALUES (1, 'Osborne Hall', 106, NULL, 'classroom', NULL)`)
+        await queryRunner.query(`INSERT INTO rooms (id, buildings_locations, room_number, room_name, room_type, person) VALUES (2, 'Cunnintham Center', 204, 'Rexroth Collab', NULL, NULL)`)
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {

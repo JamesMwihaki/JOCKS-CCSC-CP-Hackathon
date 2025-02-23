@@ -19,6 +19,10 @@ export class BuildingsService {
     return this.buildingsRepository.find({ select: ['buildings_locations'] })
   }
 
+  getBuildingDescription(buildingName: string) {
+    return this.buildingsRepository.find({ select: ['description'], where: {buildings_locations: buildingName }})
+  }
+
   createPost(body: BuildingsDto) {
     const post = this.buildingsRepository.create(body)
     return this.buildingsRepository.save(post)
